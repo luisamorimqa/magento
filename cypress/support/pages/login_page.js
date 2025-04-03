@@ -17,14 +17,7 @@ const elements = {
     }
 }
 
-export default {
-
-    checkPage() {
-        cy.visit('/')
-            .get(elements.text.title)
-            .should('be.visible')
-            .and('have.text', 'Customer Login')
-    },    
+export default {    
 
     fillEmail(email) {
         cy.get(elements.fields.email)

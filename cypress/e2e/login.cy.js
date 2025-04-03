@@ -1,5 +1,5 @@
 import login_page from '../support/pages/login_page'
-import home_page from '../support/pages/home_page'
+import home_page from '../support/pages/my_account_page'
 
 const user = {
     email: Cypress.env('email'),
@@ -9,7 +9,10 @@ const user = {
 describe('Login', () => {
 
     beforeEach(() => {
-        login_page.checkPage()
+        cy.visit('/customer/account/login')
+            .get('.base')
+            .should('be.visible')
+            .and('have.text', 'Customer Login')
     })
 
     it('Login sem informar email', () => {
