@@ -68,6 +68,6 @@ export default {
                 cy.get(elements.text.messageSuccessAddToCart)
                     .should('be.visible')
                     .and('contains.text', `You added ${productName} to your shopping cart.`)
-            })          
+            })
     }
 }

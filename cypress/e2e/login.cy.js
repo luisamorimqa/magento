@@ -2,8 +2,8 @@ import login_page from '../support/pages/login_page'
 import home_page from '../support/pages/my_account_page'
 
 const user = {
-    email: Cypress.env('email'),
-    password: Cypress.env('password')
+    email: Cypress.env('email_existente'),
+    password: Cypress.env('password_existente')
 }
 
 describe('Login', () => {
@@ -34,7 +34,7 @@ describe('Login', () => {
         login_page.checkErrorMessagePassword('This is a required field.')
     })
 
-    it('Login informando senha inválida', () => { 
+    it.only('Login informando senha inválida', () => { 
         login_page.fillEmail(user.email)
         login_page.fillPassword('1')
         login_page.clickSignIn()

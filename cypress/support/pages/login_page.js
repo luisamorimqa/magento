@@ -59,5 +59,16 @@ export default {
         cy.get(elements.messages.passwordInvalid)
             .should('be.visible')
             .and('have.text', message)
+    },
+
+    login(email, password) {
+        cy.visit('/customer/account/login')
+            .get('.base')
+            .should('be.visible')
+            .and('have.text', 'Customer Login')
+            
+        this.fillEmail(email)
+        this.fillPassword(password)
+        this.clickSignIn()
     }
 }

@@ -1,11 +1,13 @@
 const elements = {
     text: {
         title: '.base',
-        emptyCart: '.subtitle.empty'
+        emptyCart: '.subtitle.empty',
+        itemsCart: '#minicart-content-wrapper > div.block-content > div.items-total > span:nth-child(2)'
     },
 
     buttons: {
-        showCart: '.showcart'
+        showCart: '.showcart',
+        clearCart: '.delete'
     }
 }
 
@@ -28,5 +30,17 @@ export default {
         cy.get(elements.text.emptyCart)
             .should('be.visible')
             .and('have.text', 'You have no items in your shopping cart.')
+    },
+
+    clickClearCart() {
+        cy.get(elements.buttons.clearCart)
+            .should('be.visible')
+            .click()
+    },
+
+    checkMessageProductInCart() {
+        cy.get(elements.text.itemsCart)
+            .should('be.visible')
+            .and('have.text', 'Item in Cart')
     }
 }
